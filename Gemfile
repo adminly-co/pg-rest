@@ -6,6 +6,7 @@ gemspec
 
 gem 'pg'
 gem 'dotenv-rails'
+gem 'rest-client'
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]

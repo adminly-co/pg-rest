@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 6.1.4", ">= 6.1.4.1"
   spec.add_dependency "pg"
+  spec.add_dependency "rest-client"
   spec.add_dependency "dotenv-rails"
 
 end
