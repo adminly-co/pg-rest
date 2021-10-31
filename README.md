@@ -135,6 +135,53 @@ Parameters
 | column_name | string | The name of the column to remove.|
 
 
+## REST API client 
+
+PgRest also supports a ruby client for handling the API requests. 
+
+You can initialize the PgRest client using:
+
+```
+pg_client = PgRest::Api.new(api_key: <API_KEY>, api_url: <API_URL>)
+```
+
+### Database migrations using PgRest API client
+
+Create table:
+
+```
+pg_client.create_table(table_name: <TABLE_NAME>)
+```
+
+Drop table:
+
+```
+pg_client.drop_table(table_name: <TABLE_NAME>)
+```
+
+Add table column:
+
+```
+pg_client.add_column(
+  table_name: <TABLE_NAME>,
+  name: <COLUMN_NAME>,
+  type: <COLUMN_TYPE>,
+  default: <DEFAULT_VALUE>,
+  array: <IS_ARRAY>,
+  primary_key: <IS_PRIMARY_KEY>,
+  foreign_key: <IS_FOREIGN_KEY>,
+)
+```
+
+Remove table column:
+
+```
+pg_client.remove_column(
+  table_name: <TABLE_NAME>, 
+  name: <COLUMN_NAME>
+)
+```
+
 ### API Token Authentication 
 
 The PgRest API is secured using an API token. 

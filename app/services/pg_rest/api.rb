@@ -3,11 +3,11 @@ require 'rest-client'
 module PgRest 
   class Api 
 
-    attr_accessor :api_url, :api_key
+    attr_accessor :api_url, :api_token
 
-    def initialize(api_url:, api_key:)
+    def initialize(api_url:, api_token: PgRest.api_token)
       @api_url = api_url 
-      @api_key = api_key       
+      @api_token = api_token       
     end 
 
     def find_table(table_name:)      
@@ -70,7 +70,7 @@ module PgRest
     def headers 
       {
         "Content-Type": "application/json",
-        "Authorization": "Bearer #{@api_key}"
+        "Authorization": "Bearer #{@api_token}"
       }
     end 
 
