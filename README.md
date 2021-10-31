@@ -80,7 +80,7 @@ POST /pg-rest/tables
 Parameters
 
 | Parameter | Type | Description |
-| --- | --- |
+| --- | --- | --- |
 | name | string | The name of the database table. |
 
 
