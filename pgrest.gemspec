@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Rami Bitar"]
   spec.email       = ["rami@skillhire.com"]
   spec.homepage    = "https://github.com/dash-api/pg-rest"
-  spec.summary     = "REST API for postgres database migrations."
-  spec.description = "REST API for remote postgres database migrations."
+  spec.summary     = "REST API for PostgreSQL database migrations."
+  spec.description = "REST API for remote PostgreSQL database migrations."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -15,8 +15,8 @@ Gem::Specification.new do |spec|
   #spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/dash-api/pg-rest.git"
-  spec.metadata["changelog_uri"] = "https://github.com/dash-api/pg-rest.git"
+  spec.metadata["source_code_uri"] = "https://github.com/dash-api/pg-rest"
+  spec.metadata["changelog_uri"] = "https://github.com/dash-api/pg-rest"
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
