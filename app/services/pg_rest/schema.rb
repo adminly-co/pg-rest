@@ -1,22 +1,25 @@
 module PgRest
   module Schema 
 
-    EXCLUDED_TABLES = []
-
     attr_accessor :tables 
 
     def self.table_names
+      #ActiveRecord::Base.connection.query_cache.clear
       @tables = ActiveRecord::Base.connection.tables
-      @tables.filter!{|t| !EXCLUDED_TABLES.include?(t)}.sort!
     end 
 
     def self.table_schema(table_name) 
       @tables = table_names 
-      pg_table = PgRest.modelize(table_name)       
-      pg_table.columns
+      pg_table = PgRest::PgTable.modelize(table_name) 
+      pg_table.reset_column_information      
+      columns = []
+      pg_table.columns.each do |column|
+        columns << render_column(column) 
+      end 
+      columns
     end 
 
-    def self.db_schema 
+    def self.pg_schema 
       @tables = table_names
       schema = {
         tables: @tables
@@ -25,6 +28,15 @@ module PgRest
         schema[table_name] = table_schema(table_name)
       end      
       schema   
+    end 
+
+    def self.render_column(column)
+      {
+        name: column.name,
+        type: column.sql_type_metadata.type,
+        limit: column.sql_type_metadata.limit,
+        precision: column.sql_type_metadata.precision,
+      }
     end 
     
   end 

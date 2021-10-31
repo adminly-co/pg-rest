@@ -1,5 +1,5 @@
-require "dash_api/version"
-require "dash_api/engine"
+require "pg_rest/version"
+require "pg_rest/engine"
 
 module PgRest
     

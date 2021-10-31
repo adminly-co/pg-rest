@@ -1,10 +1,9 @@
 PgRest::Engine.routes.draw do
 
-  root 'schema#index'
-
-  get 'schema' => 'schema#schema'
+  root 'tables#index'
   
-  resources :tables
-  resources :columns, only: [:create, :delete]
+  resources :tables do 
+    resources :columns, only: [:create, :destroy]
+  end 
 
 end

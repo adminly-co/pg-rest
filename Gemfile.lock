@@ -1,12 +1,9 @@
 PATH
   remote: .
   specs:
-    dash_api (0.0.15)
+    pg_rest (0.0.1)
       dotenv-rails
-      jwt
-      kaminari
       pg
-      pg_search
       rails (~> 6.1.4, >= 6.1.4.1)
 
 GEM
@@ -83,19 +80,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    jwt (2.3.0)
-    kaminari (1.2.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.1)
-      kaminari-activerecord (= 1.2.1)
-      kaminari-core (= 1.2.1)
-    kaminari-actionview (1.2.1)
-      actionview
-      kaminari-core (= 1.2.1)
-    kaminari-activerecord (1.2.1)
-      activerecord
-      kaminari-core (= 1.2.1)
-    kaminari-core (1.2.1)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -111,9 +95,6 @@ GEM
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
-    pg_search (2.3.5)
-      activerecord (>= 5.2)
-      activesupport (>= 5.2)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -165,12 +146,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  dash_api!
   dotenv-rails
-  jwt
-  kaminari
   pg
-  pg_search
+  pg_rest!
 
 BUNDLED WITH
    2.2.29

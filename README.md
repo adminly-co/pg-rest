@@ -40,7 +40,7 @@ end
 
 ## Requirements
 
-PgRest requires Ruby on Rails and Postgres, and below are recommended versions: 
+PgRest requires Ruby on Rails and PostgreSQL, and below are recommended versions: 
  - Rails 6+ 
  - Ruby 2.7.4+
  - Active Record supported database.

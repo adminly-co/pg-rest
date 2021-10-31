@@ -1,5 +1,5 @@
 module PgRest
-  class PgService < ActiveRecord::Migration[6.0]
+  class PgService
 
     attr_accessor :uri
 
@@ -8,7 +8,7 @@ module PgRest
 
     def self.create_table(table_name:)
       self.with_transaction do  
-        PgService.create_table table_name.to_sym do |t|
+        ActiveRecord::Migration[6.0].create_table table_name.to_sym do |t|
           t.timestamps
         end
       end 
@@ -16,19 +16,28 @@ module PgRest
 
     def self.drop_table(table_name:)
       self.with_transaction do  
-        PgService.drop_table table_name.to_sym
+        ActiveRecord::Migration[6.0].drop_table table_name.to_sym
       end 
     end 
 
-    def self.add_column(table_name:, field:, type:, foreign_key: false, null: true, array: false)
+    def self.add_column(
+        table_name:, 
+        name:, 
+        type:, 
+        primary_key: false,
+        foreign_key: false, 
+        null: true, 
+        default: nil, 
+        array: false
+      )
       self.with_transaction do  
-        PgService.add_column table_name.to_sym, field.to_sym, type.to_sym, null: null, default: default, array: array, foreign_key: foreign_key 
+        ActiveRecord::Migration[6.0].add_column table_name.to_sym, name.to_sym, type.to_sym, null: null, default: default, array: array, foreign_key: foreign_key 
       end
     end 
 
-    def self.remove_column(table_name:, field:, type:)
+    def self.remove_column(table_name:, name:)
       self.with_transaction do  
-        PgService.remove_column table_name.to_sym, field.to_sym, type.to_sym
+        ActiveRecord::Migration[6.0].remove_column table_name.to_sym, name.to_sym
       end 
     end 
 
