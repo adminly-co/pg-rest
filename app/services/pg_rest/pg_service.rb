@@ -31,7 +31,16 @@ module PgRest
         array: false
       )
       self.with_transaction do  
-        ActiveRecord::Migration[6.0].add_column table_name.to_sym, name.to_sym, type.to_sym, null: null, default: default, array: array, foreign_key: foreign_key 
+        ActiveRecord::Migration[6.0].add_column(
+          table_name.to_sym, 
+          name.to_sym, 
+          type.to_sym, 
+          null: true, 
+          default: default, 
+          array: array, 
+          primary_key: primary_key,
+          foreign_key: foreign_key 
+        )
       end
     end 
 
