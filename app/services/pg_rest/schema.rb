@@ -32,10 +32,13 @@ module PgRest
 
     def self.render_column(column)
       {
+        friendly_name: column.human_name,
         name: column.name,
-        type: column.sql_type_metadata.type,
+        type: column.sql_type,
+        array: column.array,
+        default: column.default,
         limit: column.sql_type_metadata.limit,
-        precision: column.sql_type_metadata.precision,
+        precision: column.sql_type_metadata.precision
       }
     end 
     
