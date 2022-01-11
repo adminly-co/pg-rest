@@ -34,7 +34,7 @@ module PgRest
       {
         friendly_name: column.human_name,
         name: column.name,
-        type: column.sql_type,
+        type: column.sql_type_metadata.type,
         array: column.array,
         default: column.default,
         limit: column.sql_type_metadata.limit,
